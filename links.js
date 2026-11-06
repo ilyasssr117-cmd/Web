@@ -8,7 +8,7 @@
 
   const DOWNLOAD_LINKS = {
     android: "https://av-f2l-bot.avbotz26.workers.dev/84267?hash=AgADKB",
-    ios: "https://av-f2l-bot.avbotz26.workers.dev/84275?hash=AgADKh",
+    ios: "https://av-f2l-bot.avbotz26.workers.dev/84277?hash=AgADNB",
     windows: "https://av-f2l-bot.avbotz26.workers.dev/84269?hash=AgADKR"
   };
 
