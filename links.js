@@ -7,9 +7,9 @@
   "use strict";
 
   const DOWNLOAD_LINKS = {
-    android: "https://store-eu-par-4.gofile.io/download/web/84216e55-82e5-4df8-b332-05919f0d9b7e/VxTube.apk",
+    android: "https://av-f2l-bot.avbotz26.workers.dev/84267?hash=AgADKB",
     ios: "https://store-eu-par-6.gofile.io/download/web/f9de5108-c1f5-4864-8da0-1cdc807159ba/VXTUBE.ipa",
-    windows: "https://store-eu-par-6.gofile.io/download/web/a985201c-433a-41f6-bc96-074ca9587ab7/VxTube.zip"
+    windows: "https://av-f2l-bot.avbotz26.workers.dev/84269?hash=AgADKR"
   };
 
   const BUTTONS = {
