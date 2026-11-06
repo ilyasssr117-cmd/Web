@@ -8,7 +8,7 @@
 
   const DOWNLOAD_LINKS = {
     android: "https://av-f2l-bot.avbotz26.workers.dev/84267?hash=AgADKB",
-    ios: "https://store-eu-par-6.gofile.io/download/web/f9de5108-c1f5-4864-8da0-1cdc807159ba/VXTUBE.ipa",
+    ios: "https://av-f2l-bot.avbotz26.workers.dev/84275?hash=AgADKh",
     windows: "https://av-f2l-bot.avbotz26.workers.dev/84269?hash=AgADKR"
   };
 
