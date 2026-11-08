@@ -7,9 +7,9 @@
   "use strict";
 
   const DOWNLOAD_LINKS = {
-    android: "https://gofile.io/d/iKVEogoD",
-    ios: "https://gofile.io/d/7B7mxe2N",
-    windows: "https://gofile.io/d/XeX8MjT3"
+    android: "https://gofile.io/d/GqSxV5QC",
+    ios: "https://gofile.io/d/fRRofpe6",
+    windows: "https://gofile.io/d/AQaMOqho"
   };
 
   const BUTTONS = {
