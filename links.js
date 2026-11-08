@@ -7,9 +7,9 @@
   "use strict";
 
   const DOWNLOAD_LINKS = {
-    android: "https://av-f2l-bot.avbotz26.workers.dev/84267?hash=AgADKB",
-    ios: "https://av-f2l-bot.avbotz26.workers.dev/84277?hash=AgADNB",
-    windows: "https://av-f2l-bot.avbotz26.workers.dev/84269?hash=AgADKR"
+    android: "https://gofile.io/d/iKVEogoD",
+    ios: "https://gofile.io/d/7B7mxe2N",
+    windows: "https://gofile.io/d/XeX8MjT3"
   };
 
   const BUTTONS = {
