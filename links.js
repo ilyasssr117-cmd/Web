@@ -7,9 +7,9 @@
   "use strict";
 
   const DOWNLOAD_LINKS = {
-    android: "https://gofile.io/d/GqSxV5QC",
-    ios: "https://gofile.io/d/fRRofpe6",
-    windows: "https://gofile.io/d/AQaMOqho"
+    android: "https://igoqkqbkctcubozyaxnx.supabase.co/storage/v1/object/public/vxtube-releases/VXTUBE-2.2.1-4-android.apk?download=VXTUBE-2.2.1-4-android.apk",
+    ios: "https://igoqkqbkctcubozyaxnx.supabase.co/storage/v1/object/public/vxtube-releases/VXTUBE-2.2.1-4-ios-unsigned.ipa?download=VXTUBE-2.2.1-4-ios-unsigned.ipa",
+    windows: "https://igoqkqbkctcubozyaxnx.supabase.co/storage/v1/object/public/vxtube-releases/VXTUBE-2.2.1-4-windows-x64.zip?download=VXTUBE-2.2.1-4-windows-x64.zip"
   };
 
   const BUTTONS = {
