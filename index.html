@@ -1,125 +1,912 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0b0e">
-  <meta name="description" content="VXTUBE — منصة لاكتشاف ومشاهدة محتوى الفيديو المخصص للبالغين 18+ عبر Android وiOS وWindows.">
-  <meta name="robots" content="index,follow">
-  <meta http-equiv="Delegate-CH" content="Sec-CH-UA https://s.magsrv.com; Sec-CH-UA-Mobile https://s.magsrv.com; Sec-CH-UA-Arch https://s.magsrv.com; Sec-CH-UA-Model https://s.magsrv.com; Sec-CH-UA-Platform https://s.magsrv.com; Sec-CH-UA-Platform-Version https://s.magsrv.com; Sec-CH-UA-Bitness https://s.magsrv.com; Sec-CH-UA-Full-Version-List https://s.magsrv.com; Sec-CH-UA-Full-Version https://s.magsrv.com;">
-  <title>VXTUBE — مساحة مشاهدة للبالغين 18+</title>
-  <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Studio</title>
   <style>
-    :root{--bg:#09090c;--panel:#121218;--panel2:#191920;--text:#f6f6f8;--muted:#a5a5b1;--blue:#2588ff;--blue-strong:#1557c0;--line:rgba(255,255,255,.09);--max:1120px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% 0%,rgba(37,136,255,.18),transparent 35%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.7}
-    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}.topbar{position:sticky;top:0;z-index:10;background:rgba(9,9,12,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-1px;font-size:25px}.mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(145deg,#69bdff,#1557c0);display:grid;place-items:center;box-shadow:0 8px 28px #2588ff3d;font-weight:950;font-size:21px}.navlinks{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:14px}.navlinks a:hover{color:white}.navright{display:flex;align-items:center;gap:12px}.lang{border:1px solid var(--line);background:var(--panel);color:white;border-radius:99px;padding:9px 14px;cursor:pointer;font-weight:700}
-    .hero{padding:88px 0 76px;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#83bdff;border:1px solid #2588ff4d;background:#2588ff12;border-radius:99px;padding:6px 13px;font-weight:800;font-size:12px;letter-spacing:.08em}.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;box-shadow:0 0 13px var(--blue)}h1{font-size:clamp(42px,6vw,72px);letter-spacing:-2.8px;line-height:1.08;margin:24px 0 18px;font-weight:900}.accent{color:var(--blue)}.lead{font-size:18px;color:#c1c1cb;max-width:620px;margin:0 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 21px;border-radius:13px;font-weight:850;border:1px solid var(--line);transition:.2s}.btn.primary{background:linear-gradient(135deg,#3b96ff,#1557c0);border-color:transparent;box-shadow:0 12px 35px #2588ff30}.btn.secondary{background:rgba(110,170,235,.06)}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.btn[aria-disabled="true"]{opacity:.48;pointer-events:none;filter:grayscale(.4)}.smallnote{color:var(--muted);font-size:12px;margin-top:15px}
-    .showcase{min-height:390px;position:relative;display:grid;place-items:center}.orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#2588ff50 0%,#1557c022 42%,transparent 70%);filter:blur(12px)}.mock{position:relative;width:min(100%,390px);border:1px solid #ffffff22;border-radius:30px;padding:17px;background:linear-gradient(150deg,#22222c,#101015 70%);box-shadow:0 30px 90px #0009;transform:rotate(-3deg)}.mockhead{display:flex;align-items:center;justify-content:space-between;padding:6px 5px 17px}.mocklogo{font-size:21px;font-weight:950;letter-spacing:-1px}.mocklogo span{color:var(--blue)}.mockpill{font-size:10px;color:#a7d2ff;background:#2588ff1c;border:1px solid #2588ff40;padding:4px 8px;border-radius:99px}.poster{height:220px;border-radius:19px;overflow:hidden;background:radial-gradient(circle at 70% 25%,#4aa3ff 0,#174b91 30%,#101f35 66%,#101015 100%);position:relative;display:flex;align-items:end;padding:18px}.poster:before,.poster:after{content:"";position:absolute;border:1px solid #ffffff26;border-radius:50%;width:230px;height:230px;top:-85px;left:-45px}.poster:after{width:160px;height:160px;top:-48px;left:-10px}.posterlabel{position:relative;font-weight:900;font-size:22px}.mocktiles{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.tile{height:68px;border-radius:12px;background:linear-gradient(145deg,#343440,#17171e);border:1px solid #ffffff0c}.tile:nth-child(2){background:linear-gradient(145deg,#244d7c,#14253a)}.tile:nth-child(3){background:linear-gradient(145deg,#27466c,#111b2b)}.mockfoot{display:flex;justify-content:space-between;color:#9b9ba7;font-size:11px;padding:13px 3px 2px}
-    section{padding:74px 0;border-top:1px solid var(--line)}.sectionhead{max-width:700px;margin-bottom:32px}.kicker{color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.sectionhead h2{font-size:clamp(29px,4vw,42px);line-height:1.2;letter-spacing:-1px;margin:8px 0 12px}.sectionhead p{color:var(--muted);margin:0}.grid3{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:linear-gradient(150deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:24px}.icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#17385f;color:#9acbff;font-size:20px;margin-bottom:15px}.card h3{font-size:18px;margin:0 0 8px}.card p{font-size:14px;color:var(--muted);margin:0}.audience{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}.audiencebox{border-radius:22px;padding:28px;background:linear-gradient(140deg,#102b4d,#10233d 72%);border:1px solid #2588ff33}.audiencebox h3{margin:0 0 10px;font-size:23px}.audiencebox p{margin:0;color:#c8d8ed}.principles{display:grid;grid-template-columns:1fr 1fr;gap:12px}.principle{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.principle b{display:block;margin-bottom:4px}.principle span{font-size:13px;color:var(--muted)}
-    .downloads{background:linear-gradient(180deg,transparent,#08172b 50%,transparent)}.downloadgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.download{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;min-height:270px}.platform-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(145deg,#183b65,#10243e);color:#a9d3ff;margin-bottom:15px;border:1px solid #5ca9ff35}.platform-icon svg{width:34px;height:34px}.platform-icon.apple{color:#eef6ff}.platform-icon.windows{color:#86c3ff}.download .platform{font-size:12px;color:#8fc4ff;font-weight:900;letter-spacing:.06em}.download h3{font-size:23px;margin:8px 0}.download p{font-size:13px;color:var(--muted);margin:0 0 20px}.download .btn{margin-top:auto;width:100%}.warning{font-size:12px;color:#aaa9b4;margin-top:17px}.policy{border:1px solid #2588ff45;background:#2588ff0b;border-radius:20px;padding:24px}.policy h3{margin:0 0 8px}.policy p{color:#c9c4ca;margin:0;font-size:14px}.footer{padding:30px 0 44px;color:var(--muted);font-size:12px}.footrow{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}.footer strong{color:#fff}.footer a{text-decoration:underline;text-decoration-color:#ffffff44;text-underline-offset:3px}
-    .ad-section{padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}.ad-container{width:min(var(--max),calc(100% - 28px));margin:auto;display:flex;justify-content:center;align-items:center}.ad-box{width:300px;max-width:100%;min-height:250px;text-align:center;overflow:hidden}.ad-label{display:block;margin-bottom:7px;color:var(--muted);font-size:11px}.ad-box ins{display:block;max-width:100%}
-    .leaderboard-ad-section{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012);overflow:hidden}.leaderboard-ad-container{width:min(728px,calc(100% - 28px));min-height:90px;margin:0 auto;display:flex;justify-content:center;align-items:center;overflow:hidden}.leaderboard-ad-box{width:728px;max-width:100%;min-height:90px;text-align:center;overflow:hidden}.leaderboard-ad-box ins{display:block;max-width:100%;margin:0 auto}.leaderboard-ad-label{display:block;margin-bottom:6px;color:var(--muted);font-size:11px}
-    [dir="ltr"] .hero,[dir="ltr"] .audience{direction:ltr}[dir="ltr"] .navlinks{direction:ltr}[dir="ltr"] .wrap{text-align:left}
-    @keyframes languageReveal{0%{opacity:0;transform:translateY(7px);filter:blur(2px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}@keyframes languageButton{0%{transform:scale(.94);opacity:.7}55%{transform:scale(1.04)}100%{transform:scale(1);opacity:1}}body.lang-switching [data-ar][data-en]{animation:languageReveal .42s cubic-bezier(.2,.75,.25,1) both}body.lang-switching .lang{animation:languageButton .42s ease both}@media(prefers-reduced-motion:reduce){body.lang-switching [data-ar][data-en],body.lang-switching .lang{animation:none!important}}
-    @media(max-width:820px){.hero{grid-template-columns:1fr;padding:60px 0 45px;gap:18px}.showcase{min-height:330px}.navlinks{display:none}.grid3,.downloadgrid{grid-template-columns:1fr}.audience{grid-template-columns:1fr}.principles{grid-template-columns:1fr 1fr}section{padding:58px 0}}
-    @media(max-width:480px){.wrap{width:min(var(--max),calc(100% - 28px))}.nav{height:66px}.brand{font-size:22px}.mark{width:38px;height:38px}.principles{grid-template-columns:1fr}.lead{font-size:16px}.mock{padding:12px}.poster{height:190px}}
+    :root {
+      --bg-0: #070b14;
+      --bg-1: #0d1424;
+      --glass: rgba(18, 27, 48, 0.72);
+      --glass-strong: rgba(24, 36, 64, 0.88);
+      --border: rgba(148, 163, 184, 0.14);
+      --border-glow: rgba(129, 140, 248, 0.42);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-2: #818cf8;
+      --ok: #34d399;
+      --err: #fb7185;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 16px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(99, 102, 241, 0.22), transparent 60%),
+        radial-gradient(700px 450px at 10% 105%, rgba(56, 189, 248, 0.12), transparent 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-0));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 720px;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-2), #38bdf8);
+      box-shadow: 0 0 14px rgba(129, 140, 248, 0.8);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      color: #c7d2fe;
+      background: rgba(99, 102, 241, 0.14);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    @media (max-width: 560px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .shell {
+        padding: 18px;
+        border-radius: 18px;
+      }
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: var(--glass-strong);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.84rem;
+      direction: ltr;
+      text-align: left;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    input {
+      height: 44px;
+      padding: 0 14px;
+    }
+
+    textarea {
+      padding: 13px 14px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    #sessionBlob {
+      min-height: 108px;
+    }
+
+    #result {
+      min-height: 140px;
+      margin-top: 14px;
+      color: #e2e8f0;
+    }
+
+    #responseBox {
+      min-height: 86px;
+      margin-top: 10px;
+      color: #cbd5e1;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--border-glow);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.16);
+      background: rgba(29, 44, 78, 0.95);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      height: 42px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #4f46e5);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    }
+
+    .btn-send {
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.28);
+    }
+
+    .btn-send:hover:not(:disabled) {
+      background: linear-gradient(135deg, #10b981, #34d399);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(148, 163, 184, 0.28);
+    }
+
+    .status {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .status.ok {
+      color: var(--ok);
+    }
+
+    .status.err {
+      color: var(--err);
+    }
   </style>
 </head>
 <body>
-  <header class="topbar"><div class="wrap nav">
-    <a class="brand" href="#home" aria-label="VXTUBE home"><span class="mark">V</span><span>VX<span class="accent">TUBE</span></span></a>
-    <nav class="navlinks"><a href="#about" data-ar="عن التطبيق" data-en="About">عن التطبيق</a><a href="#audience" data-ar="الجمهور" data-en="Audience">الجمهور</a><a href="#downloads" data-ar="التنزيلات" data-en="Downloads">التنزيلات</a><a href="#policy" data-ar="سياسة المحتوى" data-en="Content policy">سياسة المحتوى</a></nav>
-    <div class="navright"><button class="lang" id="langBtn" type="button">EN</button></div>
-  </div></header>
-
-  <main>
-    <div class="wrap hero" id="home">
-      <div>
-        <span class="eyebrow"><span class="dot"></span><span data-ar="للبالغين فقط · 18+" data-en="ADULTS ONLY · 18+">للبالغين فقط · 18+</span></span>
-        <h1 data-ar="اكتشف عالم الفيديو مع <span class='accent'>VXTUBE</span>" data-en="Discover video with <span class='accent'>VXTUBE</span>">اكتشف عالم الفيديو مع <span class="accent">VXTUBE</span></h1>
-        <p class="lead" data-ar="VXTUBE تطبيق مخصص للبالغين (+18) لعرض الفيديوهات وتصفحها ومشاهدتها فقط. لا يوفر التطبيق ميزة رفع فيديوهات المستخدمين أو نشرها؛ فهو تجربة مشاهدة واكتشاف للمحتوى المتاح داخله." data-en="VXTUBE is an adults-only (18+) app for browsing and watching available videos. It is designed for viewing and discovery only; users cannot upload or publish their own videos through the app.">VXTUBE تطبيق مخصص للبالغين (+18) لعرض الفيديوهات وتصفحها ومشاهدتها فقط. لا يوفر التطبيق ميزة رفع فيديوهات المستخدمين أو نشرها؛ فهو تجربة مشاهدة واكتشاف للمحتوى المتاح داخله.</p>
-        <div class="actions"><a class="btn primary" href="#downloads" data-ar="استكشف روابط التنزيل ↓" data-en="Explore downloads ↓">استكشف روابط التنزيل ↓</a><a class="btn secondary" href="#about" data-ar="تعرف على VXTUBE" data-en="Discover VXTUBE">تعرف على VXTUBE</a></div>
-        <p class="smallnote" data-ar="18+ فقط. لا يُسمح بدخول أو استخدام التطبيق لمن هم دون 18 عاماً." data-en="18+ only. Access and use are not permitted for anyone under 18.">18+ فقط. لا يُسمح بدخول أو استخدام التطبيق لمن هم دون 18 عاماً.</p>
+  <main class="shell">
+    <div class="top">
+      <div class="title-wrap">
+        <span class="dot"></span>
+        <h1>مولّد الجلسة</h1>
       </div>
-      <div class="showcase" aria-label="VXTUBE visual identity"><div class="orb"></div><div class="mock">
-        <div class="mockhead"><div class="mocklogo">VX<span>TUBE</span></div><div class="mockpill">18+ ONLY</div></div>
-        <div class="poster"><div class="posterlabel" data-ar="مساحة مشاهدة للبالغين" data-en="A viewing space for adults">مساحة مشاهدة للبالغين</div></div>
-        <div class="mocktiles"><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
-        <div class="mockfoot"><span>Discover</span><span>Watch · Explore</span><span>VXTUBE</span></div>
-      </div></div>
+      <span class="pill">Patient Arc • 120Hz</span>
     </div>
 
-    <!-- ExoClick Banner: Zone 6083844 / 300x250 -->
-    <section class="ad-section" id="advertisement" aria-label="Advertisement">
-      <div class="ad-container"><div class="ad-box">
-        <span class="ad-label" data-ar="إعلان" data-en="Advertisement">إعلان</span>
-        <ins class="eas6a97888e2" data-zoneid="6083844" data-block-ad-types="0"></ins>
-        <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
-      </div></div>
-    </section>
-    <!-- End ExoClick Banner -->
-
-    <section id="about"><div class="wrap"><div class="sectionhead"><span class="kicker" data-ar="عن التطبيق" data-en="ABOUT THE APP">عن التطبيق</span><h2 data-ar="تجربة فيديو واضحة وبسيطة" data-en="A focused video experience">تجربة فيديو واضحة وبسيطة</h2><p data-ar="يركز VXTUBE على عرض الفيديوهات وتصفحها وتشغيلها بسهولة. إنه تطبيق للمشاهدة فقط، وليس منصة لرفع فيديوهات المستخدمين أو نشرها." data-en="VXTUBE focuses on browsing and playing available videos. It is a viewing-only app, not a platform for users to upload or publish videos.">يركز VXTUBE على عرض الفيديوهات وتصفحها وتشغيلها بسهولة. إنه تطبيق للمشاهدة فقط، وليس منصة لرفع فيديوهات المستخدمين أو نشرها.</p></div>
-      <div class="grid3">
-        <article class="card"><div class="icon">▶</div><h3 data-ar="المشاهدة فقط" data-en="Viewing only">المشاهدة فقط</h3><p data-ar="يعرض التطبيق الفيديوهات المتاحة للمستخدمين، ولا يتيح رفع فيديوهاتهم أو نشرها." data-en="The app displays available videos and does not let users upload or publish their own videos.">يعرض التطبيق الفيديوهات المتاحة للمستخدمين، ولا يتيح رفع فيديوهاتهم أو نشرها.</p></article>
-        <article class="card"><div class="icon">▣</div><h3 data-ar="اكتشاف ومشاهدة" data-en="Discover & watch">اكتشاف ومشاهدة</h3><p data-ar="تصفح محتوى الفيديو وانتقل إلى المشاهدة من تجربة موحدة." data-en="Browse video content and move into playback from one unified experience.">تصفح محتوى الفيديو وانتقل إلى المشاهدة من تجربة موحدة.</p></article>
-        <article class="card"><div class="icon">▦</div><h3 data-ar="تنظيم المحتوى" data-en="Organized content">تنظيم المحتوى</h3><p data-ar="تصفح الفيديوهات والألبومات والأقسام بطريقة مرتبة وسهلة." data-en="Browse videos, albums, and categories through a clear, organized layout.">تصفح الفيديوهات والألبومات والأقسام بطريقة مرتبة وسهلة.</p></article>
-        <article class="card"><div class="icon">⌕</div><h3 data-ar="بحث وتصفح" data-en="Search & browse">بحث وتصفح</h3><p data-ar="اعثر على المحتوى عبر البحث والتنقل بين الأقسام." data-en="Find content through search and category navigation.">اعثر على المحتوى عبر البحث والتنقل بين الأقسام.</p></article>
+    <div class="grid-2">
+      <div class="field">
+        <label for="token">Token</label>
+        <input id="token" type="text" placeholder="أدخل التوكن هنا..." />
       </div>
-    </div></section>
-
-    <!-- ExoClick Leaderboard: Zone 6083850 / 728x90 -->
-    <section class="leaderboard-ad-section" id="leaderboard-ad" aria-label="Advertisement">
-      <div class="leaderboard-ad-container">
-        <div class="leaderboard-ad-box">
-          <span class="leaderboard-ad-label" data-ar="إعلان" data-en="Advertisement">إعلان</span>
-          <ins class="eas6a97888e2" data-zoneid="6083850"></ins>
-          <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
-        </div>
+      <div class="field">
+        <label for="target">Target Score</label>
+        <input id="target" type="number" value="4600" min="1" />
       </div>
-    </section>
-    <!-- End ExoClick Leaderboard -->
+    </div>
 
-    <section id="audience"><div class="wrap"><div class="sectionhead"><span class="kicker" data-ar="الجمهور المستهدف" data-en="WHO IT'S FOR">الجمهور المستهدف</span><h2 data-ar="للبالغين الذين يفضلون تجربة مشاهدة رقمية" data-en="For adults seeking a dedicated viewing experience">للبالغين الذين يفضلون تجربة مشاهدة رقمية</h2><p data-ar="VXTUBE مخصص حصرياً للأشخاص الذين تبلغ أعمارهم 18 عاماً أو أكثر. هذا التصنيف واضح في هوية التطبيق وفي طريقة تقديمه." data-en="VXTUBE is intended exclusively for people aged 18 and over. This age designation is explicit in the app's identity and presentation.">VXTUBE مخصص حصرياً للأشخاص الذين تبلغ أعمارهم 18 عاماً أو أكثر. هذا التصنيف واضح في هوية التطبيق وفي طريقة تقديمه.</p></div>
-      <div class="audience"><div class="audiencebox"><h3 data-ar="هوية VXTUBE" data-en="The VXTUBE identity">هوية VXTUBE</h3><p data-ar="اسم مباشر، تصميم داكن بلمسات زرقاء، وتجربة تضع اكتشاف الفيديو ومشاهدته في المقدمة. تم إعداد العلامة لتكون واضحة على الهاتف والكمبيوتر." data-en="A direct name, a dark visual system with blue accents, and an experience centered on video discovery and playback. The brand is designed to remain clear on mobile and desktop.">اسم مباشر، تصميم داكن بلمسات زرقاء، وتجربة تضع اكتشاف الفيديو ومشاهدته في المقدمة. تم إعداد العلامة لتكون واضحة على الهاتف والكمبيوتر.</p></div>
-        <div class="principles"><div class="principle"><b data-ar="18+ حصرياً" data-en="18+ exclusively">18+ حصرياً</b><span data-ar="ليس موجهاً للقاصرين." data-en="Not intended for minors.">ليس موجهاً للقاصرين.</span></div><div class="principle"><b data-ar="خصوصية المستخدم" data-en="User privacy">خصوصية المستخدم</b><span data-ar="ينبغي توضيح جمع البيانات واستخدامها في سياسة خصوصية مستقلة." data-en="Data collection and use should be explained in a separate privacy policy.">ينبغي توضيح جمع البيانات واستخدامها في سياسة خصوصية مستقلة.</span></div><div class="principle"><b data-ar="محتوى قانوني" data-en="Lawful content">محتوى قانوني</b><span data-ar="يجب أن يكون المحتوى منشوراً بحقوق وموافقات صحيحة." data-en="Content must be lawfully published with valid rights and consent.">يجب أن يكون المحتوى منشوراً بحقوق وموافقات صحيحة.</span></div><div class="principle"><b data-ar="احترام وموافقة" data-en="Respect & consent">احترام وموافقة</b><span data-ar="لا مكان لمحتوى الاستغلال أو النشر دون موافقة." data-en="No exploitative or non-consensually published material.">لا مكان لمحتوى الاستغلال أو النشر دون موافقة.</span></div></div>
+    <div class="field">
+      <label for="sessionBlob">بيانات الجلسة (JSON)</label>
+      <textarea id="sessionBlob" placeholder='{"runId":"...","seed":...,"mode":"free","rules":"free"}'></textarea>
+    </div>
+
+    <div class="actions">
+      <div class="btn-group">
+        <button id="runBtn" class="btn-primary">توليد</button>
+        <button id="runSendBtn" class="btn-send">توليد وإرسال</button>
+        <button id="sendOnlyBtn" class="btn-ghost">إرسال</button>
+        <button id="copyBtn" class="btn-ghost">نسخ</button>
       </div>
-    </div></section>
+      <div id="status" class="status">جاهز</div>
+    </div>
 
-    <section class="downloads" id="downloads"><div class="wrap"><div class="sectionhead"><span class="kicker" data-ar="احصل على التطبيق" data-en="GET THE APP">احصل على التطبيق</span><h2 data-ar="اختر نسختك من VXTUBE" data-en="Choose your VXTUBE version">اختر نسختك من VXTUBE</h2><p data-ar="روابط التنزيل الرسمية المتاحة حالياً للنسخ التي وفرها مطور التطبيق." data-en="Current download links for the builds provided by the app developer.">روابط التنزيل الرسمية المتاحة حالياً للنسخ التي وفرها مطور التطبيق.</p></div>
-      <div class="downloadgrid">
-        <article class="download"><div class="platform-icon android" aria-hidden="true"><svg viewBox="0 0 48 48"><g fill="currentColor"><path d="M13.4 17.2c1.8-4.3 6-7.2 10.6-7.2s8.8 2.9 10.6 7.2H13.4z"/><rect x="10" y="18" width="28" height="17" rx="5"/><rect x="14" y="34" width="5" height="9" rx="2.5"/><rect x="29" y="34" width="5" height="9" rx="2.5"/><rect x="5" y="21" width="5" height="13" rx="2.5"/><rect x="38" y="21" width="5" height="13" rx="2.5"/><path d="M15 7.2 12.4 3.5M33 7.2l2.6-3.7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="19" cy="14" r="1" fill="#091321"/><circle cx="29" cy="14" r="1" fill="#091321"/></g></svg></div><span class="platform">ANDROID</span><h3>Android APK</h3><p data-ar="ملف تثبيت مباشر لأجهزة Android. قد تحتاج إلى السماح بالتثبيت من هذا المصدر في إعدادات جهازك." data-en="Direct installation package for Android devices. You may need to allow installation from this source in your device settings.">ملف تثبيت مباشر لأجهزة Android. قد تحتاج إلى السماح بالتثبيت من هذا المصدر في إعدادات جهازك.</p><a class="btn primary" id="download-android" href="#" aria-disabled="true" data-ar="رابط التنزيل غير مضبوط" data-en="Download link not set">رابط التنزيل غير مضبوط</a></article>
-        <article class="download"><div class="platform-icon apple" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="currentColor" d="M32.8 25.1c0-5.2 4.2-7.6 4.4-7.8-2.4-3.5-6.1-4-7.5-4.1-3.2-.3-6.2 1.9-7.8 1.9-1.6 0-4.1-1.9-6.8-1.8-3.5.1-6.7 2.1-8.5 5.3-3.6 6.2-.9 15.4 2.6 20.4 1.7 2.5 3.7 5.2 6.4 5.1 2.6-.1 3.6-1.7 6.7-1.7 3.1 0 4 1.7 6.8 1.6 2.8 0 4.6-2.5 6.3-5 2-2.9 2.8-5.7 2.9-5.8-.1 0-5.5-2.1-5.5-8.1zM27.8 9.8c1.4-1.7 2.3-4 2-6.3-2 .1-4.4 1.3-5.8 3-1.3 1.5-2.4 3.9-2.1 6.1 2.2.2 4.5-1.1 5.9-2.8z"/></svg></div><span class="platform">APPLE · iOS</span><h3>iPhone / iOS</h3><p data-ar="ملف IPA لأجهزة iPhone المتوافقة. قد يتطلب التثبيت توقيعاً أو طريقة تثبيت مدعومة." data-en="IPA package for compatible iPhone devices. Installation may require signing or a supported sideloading method.">ملف IPA لأجهزة iPhone المتوافقة. قد يتطلب التثبيت توقيعاً أو طريقة تثبيت مدعومة.</p><a class="btn primary" id="download-ios" href="#" aria-disabled="true" data-ar="رابط التنزيل غير مضبوط" data-en="Download link not set">رابط التنزيل غير مضبوط</a></article>
-        <article class="download"><div class="platform-icon windows" aria-hidden="true"><svg viewBox="0 0 48 48"><path fill="currentColor" d="M4 9.5 21 7v15H4V9.5zm20-2.8L44 4v18H24V6.7zM4 25h17v15L4 37.5V25zm20 0h20v18l-20-2.8V25z"/></svg></div><span class="platform">WINDOWS</span><h3>Windows</h3><p data-ar="حزمة VXTUBE لنظام Windows بصيغة RAR. فك ضغط الملف ثم اتبع تعليمات التشغيل المرفقة إن وجدت." data-en="VXTUBE package for Windows in RAR format. Extract the archive and follow any included setup instructions.">حزمة VXTUBE لنظام Windows بصيغة RAR. فك ضغط الملف ثم اتبع تعليمات التشغيل المرفقة إن وجدت.</p><a class="btn primary" id="download-windows" href="#" aria-disabled="true" data-ar="رابط التنزيل غير مضبوط" data-en="Download link not set">رابط التنزيل غير مضبوط</a></article>
-      </div>
-      <p class="warning" data-ar="تنبيه: روابط التنزيل الرسمية تُضبط في ملف links.js. نزّل التطبيق فقط إذا كنت تبلغ 18 عاماً أو أكثر وتثق بمصدر الملف. تحقق من الملف قبل تثبيته." data-en="Notice: Official download links are configured in links.js. Download only if you are 18 or older and trust the file source. Check files before installing.">تنبيه: روابط التنزيل الرسمية تُضبط في ملف links.js. نزّل التطبيق فقط إذا كنت تبلغ 18 عاماً أو أكثر وتثق بمصدر الملف. تحقق من الملف قبل تثبيته.</p>
-    </div></section>
-
-    <section id="policy"><div class="wrap"><div class="sectionhead"><span class="kicker" data-ar="المسؤولية" data-en="RESPONSIBILITY">المسؤولية</span><h2 data-ar="تصنيف عمري واضح ومبادئ محتوى مسؤولة" data-en="Clear age rating and responsible content principles">تصنيف عمري واضح ومبادئ محتوى مسؤولة</h2></div><div class="policy"><h3 data-ar="للبالغين فقط — 18+" data-en="Adults only — 18+">للبالغين فقط — 18+</h3><p data-ar="VXTUBE تطبيق عرض ومشاهدة فقط، وليس منصة لرفع أو نشر فيديوهات المستخدمين. لا يُوجَّه إلى الأطفال أو القاصرين، ويجب أن يقتصر المحتوى المتاح عبره على المحتوى القانوني المخصص للبالغين، مع حقوق استخدام وموافقات سليمة. يُحظر تماماً أي محتوى يتضمن قاصرين أو استغلالاً أو مشاركة دون موافقة. على مشغّل التطبيق توفير آلية واضحة للإبلاغ عن المحتوى المخالف والتعامل معه." data-en="VXTUBE is a viewing-only app, not a platform for user video uploads or publishing. It is not intended for children or minors, and content made available through it must be lawful adult content with valid consent and usage rights. Content involving minors, exploitation, or non-consensual sharing is strictly prohibited. The app operator should provide a clear way to report violating content and address such reports.">VXTUBE تطبيق عرض ومشاهدة فقط، وليس منصة لرفع أو نشر فيديوهات المستخدمين. لا يُوجَّه إلى الأطفال أو القاصرين، ويجب أن يقتصر المحتوى المتاح عبره على المحتوى القانوني المخصص للبالغين، مع حقوق استخدام وموافقات سليمة. يُحظر تماماً أي محتوى يتضمن قاصرين أو استغلالاً أو مشاركة دون موافقة. على مشغّل التطبيق توفير آلية واضحة للإبلاغ عن المحتوى المخالف والتعامل معه.</p></div></div></section>
+    <textarea id="result" readonly placeholder="النتيجة ستظهر هنا..."></textarea>
+    <textarea id="responseBox" readonly placeholder="رد السيرفر (/api/finish) سيظهر هنا..."></textarea>
   </main>
 
-  <footer class="footer"><div class="wrap footrow"><div><strong>VXTUBE</strong> · <span data-ar="منصة فيديو للبالغين 18+" data-en="18+ adult video platform">منصة فيديو للبالغين 18+</span></div><div>© <span id="year"></span> VXTUBE. <span data-ar="جميع الحقوق محفوظة." data-en="All rights reserved.">جميع الحقوق محفوظة.</span></div><div data-ar="18+ فقط · غير مخصص للقاصرين" data-en="18+ only · Not for minors">18+ فقط · غير مخصص للقاصرين</div></div></footer>
   <script>
-    const langBtn=document.getElementById('langBtn');
-    const languageStorageKey='vxtube-site-language';
-    let currentLang='ar';
-    function readSavedLanguage(){try{const saved=localStorage.getItem(languageStorageKey);return saved==='en'?'en':'ar';}catch(error){return 'ar';}}
-    function setLang(lang,{animate=true,persist=true}={}){
-      const nextLang=lang==='en'?'en':'ar';const changed=nextLang!==currentLang;
-      if(animate&&changed)document.body.classList.remove('lang-switching');
-      currentLang=nextLang;document.documentElement.lang=nextLang;document.documentElement.dir=nextLang==='ar'?'rtl':'ltr';
-      document.querySelectorAll('[data-ar][data-en]').forEach(el=>{el.innerHTML=el.dataset[nextLang];});
-      langBtn.textContent=nextLang==='ar'?'EN':'عربي';langBtn.setAttribute('aria-label',nextLang==='ar'?'Switch language to English':'تغيير اللغة إلى العربية');
-      document.title=nextLang==='ar'?'VXTUBE — مساحة مشاهدة للبالغين 18+':'VXTUBE — Adult video viewing experience 18+';
-      if(persist){try{localStorage.setItem(languageStorageKey,nextLang);}catch(error){/* Storage may be disabled by the browser. */}}
-      if(animate&&changed){void document.body.offsetWidth;document.body.classList.add('lang-switching');}
+    const FINISH_URL = 'https://play.wacofficialbrand.com/api/finish';
+
+    const SIM = (function () {
+      const VERSION = 8, HZ = 120, W = 360, WALL = 6, TWO_PI = 6.283185307179586;
+      const FLIGHT_MAX = 2 * HZ, MAX_MULT = 8;
+      const RULES = {
+        free: {},
+        wild: { boost: 1, holes: 1, nocap: 1, tiers: 1, flips: 1 },
+        wild2: { boost: 1, holes: 1, nocap: 1, tiers: 1, flips: 1, worm: 1 },
+        upside: { upside: 1 }, holes: { holes: 1 }, nowalls: { wrap: 1 }, boost: { boost: 1 },
+        nocap: { nocap: 1 }, fragile: { fragile: 1 }, drift: { drift: 1 }
+      };
+      const TWISTS = ['upside', 'holes', 'nowalls', 'boost', 'nocap', 'fragile', 'drift'];
+      const TIER_AT = [0, 10, 20, 30];
+      function rules(name, go, v) { const r = Object.assign({}, RULES[name] || RULES.free); if (go) r.go = 1; if (!RULES[name] || name === 'free') { if (!(v < 6)) r.reach = 1; if (v === 6) r.margin = 1; if (v === 7) r.big = 1; if (!(v < 8)) r.bigTo = 40; } return r; }
+
+      function rnd(s) {
+        s.rs = (s.rs + 0x6D2B79F5) | 0;
+        let t = Math.imul(s.rs ^ (s.rs >>> 15), 1 | s.rs);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      }
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function diff(i) { const d = i / 70; return d > 1 ? 1 : d; }
+      function clear(n, hx, hy, hr) {
+        let dx = hx - n.x; if (dx < 0) dx = -dx; dx -= n.amp; if (dx < 0) dx = 0;
+        const dy = hy - n.y, m = n.r + hr + 24;
+        return dx * dx + dy * dy > m * m;
+      }
+
+      function addNode(s) {
+        const i = s.nodes.length, R = s.R;
+        const a = rnd(s), b = rnd(s), c = rnd(s), e = rnd(s), f = rnd(s), g = rnd(s);
+        if (i === 0) { s.nodes.push({ i: 0, x: W / 2, y: 0, r: 40, type: 0, amp: 0, per: 1, off: 0, gone: false, flip: false }); return; }
+        const p = s.nodes[i - 1], d = diff(i);
+        const big = (R.big && s.score < 2000) || (R.bigTo && i < R.bigTo) ? 6 : 0;
+        const r = lerp(40, 27, d) + a * 6 + big;
+        let y = p.y + lerp(96, 136, d) + b * lerp(14, 38, d) + (big ? 8 : 0);
+        if (p.type === 3) y = p.y + 240 + b * 70;
+        const flip = !!R.flips && i % 25 === 20;
+        let boost = false;
+        if (R.boost && !flip && i >= 4 && p.type !== 3) boost = rnd(s) < 0.14;
+        let type = 0, amp = 0, per = 1, off = 0;
+        if (boost) type = 3;
+        else if (flip) type = 0;
+        else if ((i >= 10 && e < 0.10 + 0.20 * d) || (R.drift && i >= 2)) {
+          type = 1; amp = lerp(20, 56, d) * (0.6 + 0.4 * f);
+          per = Math.floor(lerp(3.8, 2.6, d) * HZ); off = Math.floor(g * per);
+        } else if ((i >= 18 && e > 0.87 - 0.05 * d) || (R.fragile && i >= 3)) {
+          type = 2;
+        }
+        const span = lerp(64, 150, d);
+        let dx = (c * 2 - 1) * span;
+        if (dx > -26 && dx < 26) dx = dx < 0 ? -26 : 26;
+        let x = p.x + dx;
+        const lo = r + amp + 14, hi = W - r - amp - 14;
+        if (x < lo) x = lo + (lo - x) * 0.5;
+        if (x > hi) x = hi - (x - hi) * 0.5;
+        if (x < lo) x = lo;
+        if (x > hi) x = hi;
+        const n = { i: i, x: x, y: y, r: r, type: type, amp: amp, per: per, off: off, gone: false, flip: flip };
+        s.nodes.push(n);
+        let gapUsed = false;
+        if (R.worm && s.wormWait.length && s.wormWait[0].exitAt <= i) {
+          const hx0 = 30 + rnd(s) * (W - 60), hy = (p.y + n.y) * 0.5;
+          let hx = hx0;
+          if (!clear(p, hx, hy, 14) || !clear(n, hx, hy, 14)) hx = W - hx0;
+          if (clear(p, hx, hy, 14) && clear(n, hx, hy, 14)) {
+            const out = { x: hx, y: hy, r: 13, i: i, exit: true };
+            s.holes.push(out); s.wormWait.shift().to = out; gapUsed = true;
+          }
+        }
+        if (!gapUsed && R.holes && i >= 5 && rnd(s) < 0.22 + 0.28 * d) {
+          const hr = 10 + rnd(s) * 5, hy = (p.y + n.y) * 0.5 + (rnd(s) - 0.5) * 24;
+          let hx = hr + 12 + rnd(s) * (W - 2 * hr - 24);
+          if (!clear(p, hx, hy, hr) || !clear(n, hx, hy, hr)) hx = W - hx;
+          if (clear(p, hx, hy, hr) && clear(n, hx, hy, hr)) {
+            const h = { x: hx, y: hy, r: hr, i: i };
+            if (R.worm && rnd(s) < 0.4) { h.worm = true; h.exitAt = i + 3 + Math.floor(rnd(s) * 3); s.wormWait.push(h); }
+            s.holes.push(h);
+          }
+        }
+      }
+      function ensure(s, yTop) { while (s.nodes[s.nodes.length - 1].y < yTop) addNode(s); }
+
+      function nodeX(n, tick) {
+        if (n.type !== 1) return n.x;
+        const p = ((tick + n.off) % n.per) / n.per;
+        const u = p < 0.5 ? p * 2 : 2 - p * 2;
+        return n.x + n.amp * (2 * u * u * (3 - 2 * u) - 1);
+      }
+
+      function create(seed, R) {
+        R = R || {};
+        const s = {
+          seed: seed >>> 0, rs: seed | 0, R: R, nodes: [], holes: [], hlo: 0, wormWait: [], tick: 0, t0: 0, started: false, dead: false, cause: '',
+          score: 0, mult: 1, maxMult: 1, hops: 0, maxNode: 0, lo: 0,
+          omega: 3.4, fspeed: 196,
+          mode: 0, node: 0, rx: -40, ry: 0, dir: 1, swept: 0, lapped: false, quick: false,
+          x: 0, y: 0, vx: 0, vy: 0, flight: 0, bounces: 0, from: 0, left: false,
+          charge: 0, boost: 0, tier: 0, flipped: !!R.upside, wrap: !!R.wrap,
+          deadline: -300, ev: []
+        };
+        addNode(s); ensure(s, 900);
+        s.x = s.nodes[0].x + s.rx; s.y = s.nodes[0].y + s.ry;
+        if (R.go) { s.started = true; s.t0 = 0; }
+        return s;
+      }
+
+      function release(s, n, forced) {
+        let sp = s.fspeed;
+        s.boost = 0;
+        if (n.type === 3) { s.boost = 1 + s.charge; sp = sp * (1.45 + 0.3 * s.charge); }
+        const k = s.dir * sp / n.r;
+        s.vx = -s.ry * k; s.vy = s.rx * k;
+        s.mode = 1; s.flight = 0; s.bounces = 0; s.from = n.i; s.left = false;
+        s.quick = !forced && (n.type === 3 || s.swept < TWO_PI);
+        s.charge = 0;
+        if (!s.started) { s.started = true; s.t0 = s.tick; }
+        s.ev.push({ t: 'rel', boost: s.boost });
+      }
+
+      function capture(s, n, cx, dx, dy) {
+        let d2 = dx * dx + dy * dy;
+        if (d2 < 1e-6) { dx = n.r; dy = 0; d2 = dx * dx; }
+        const k = n.r / Math.sqrt(d2);
+        s.rx = dx * k; s.ry = dy * k;
+        s.dir = (dx * s.vy - dy * s.vx) >= 0 ? 1 : -1;
+        s.mode = 0; s.node = n.i; s.swept = 0; s.lapped = false; s.charge = 0;
+        s.x = cx + s.rx; s.y = n.y + s.ry;
+        if (n.i > s.maxNode) {
+          const skipped = n.i - s.maxNode - 1, bank = s.bounces > 0, R = s.R;
+          const cap = R.nocap ? 9999 : MAX_MULT, inc = s.tier >= 1 ? 2 : 1, prevTier = s.tier;
+          s.mult = s.quick ? (s.mult + inc < cap ? s.mult + inc : cap) : 1;
+          if (s.mult > s.maxMult) s.maxMult = s.mult;
+          s.tier = R.tiers ? (s.mult >= TIER_AT[3] ? 3 : s.mult >= TIER_AT[2] ? 2 : s.mult >= TIER_AT[1] ? 1 : 0) : 0;
+          let pts = (10 + 6 * skipped + (bank ? 10 : 0) + 20 * s.boost) * s.mult;
+          if (bank && s.tier >= 2) pts = pts * 2;
+          s.score += pts; s.maxNode = n.i; s.hops++;
+          const d = diff(n.i);
+          s.omega = lerp(3.4, 5.5, d); s.fspeed = lerp(196, 258, d);
+          s.ev.push({ t: 'cap', pts: pts, skipped: skipped, bank: bank, mult: s.mult, boost: s.boost, tier: s.tier, up: s.tier > prevTier, down: s.tier < prevTier });
+          if (n.flip) { s.flipped = !s.flipped; s.deadline -= 90; s.ev.push({ t: 'flip', up: !s.flipped }); }
+        } else {
+          s.mult = 1;
+          if (s.tier) { s.tier = 0; s.ev.push({ t: 'tier', tier: 0 }); }
+          s.ev.push({ t: 'back' });
+        }
+        s.boost = 0;
+      }
+
+      function die(s, cause) { s.dead = true; s.cause = cause; s.ev.push({ t: 'dead', cause: cause }); }
+
+      function holes(s, dt) {
+        while (s.hlo < s.holes.length && s.holes[s.hlo].y + 120 < s.deadline) s.hlo++;
+        for (let i = s.hlo; i < s.holes.length; i++) {
+          const h = s.holes[i], dy = h.y - s.y;
+          if (dy > 120) break;
+          if (dy < -120 || h.exit) continue;
+          const dx = h.x - s.x, d2 = dx * dx + dy * dy, rr = h.r + 4;
+          if (d2 < rr * rr) {
+            if (!h.worm) { die(s, 'hole'); return; }
+            let guard = 12;
+            while (!h.to && guard-- > 0) addNode(s);
+            if (!h.to) { die(s, 'hole'); return; }
+            let sp = Math.sqrt(s.vx * s.vx + s.vy * s.vy); if (sp < s.fspeed) sp = s.fspeed; sp = sp * 1.15;
+            const x0 = s.x, y0 = s.y;
+            s.x = h.to.x; s.y = h.to.y + h.to.r + 6;
+            s.vx = (s.vx < 0 ? -0.3 : 0.3) * sp; s.vy = 0.954 * sp;
+            s.flight = 0; s.left = true;
+            s.ev.push({ t: 'worm', x0: x0, y0: y0, x1: s.x, y1: s.y });
+            return;
+          }
+          if (d2 < 110 * 110) { const a = 230000 / d2 * dt / Math.sqrt(d2); s.vx += dx * a; s.vy += dy * a; }
+        }
+      }
+
+      function step(s, tap) {
+        if (s.dead) return;
+        const dt = 1 / HZ;
+        if (s.mode === 0) {
+          const n = s.nodes[s.node];
+          if (tap) release(s, n, false);
+          else {
+            const om = n.type === 3 ? s.omega * (1 + 0.3 * s.charge) : s.omega;
+            const t = s.dir * om * dt * 0.5, t2 = t * t;
+            const c = (1 - t2) / (1 + t2), sn = 2 * t / (1 + t2);
+            const nx = s.rx * c - s.ry * sn, ny = s.rx * sn + s.ry * c;
+            const k = n.r / Math.sqrt(nx * nx + ny * ny);
+            s.rx = nx * k; s.ry = ny * k;
+            s.swept += om * dt;
+            if (n.type === 3) {
+              if (s.charge < 3 && s.swept >= TWO_PI * (s.charge + 1)) { s.charge++; s.ev.push({ t: 'charge', n: s.charge }); }
+            } else if (!s.lapped && s.swept >= TWO_PI) {
+              s.lapped = true;
+              if (s.mult > 1) { s.mult = 1; s.ev.push({ t: 'lap' }); if (s.tier) { s.tier = 0; s.ev.push({ t: 'tier', tier: 0 }); } }
+            }
+            s.x = nodeX(n, s.tick) + s.rx; s.y = n.y + s.ry;
+            if (n.type === 2 && s.swept >= TWO_PI * 1.2) { n.gone = true; s.ev.push({ t: 'pop' }); release(s, n, true); }
+          }
+        }
+        if (s.mode === 1) {
+          s.x += s.vx * dt; s.y += s.vy * dt;
+          if (s.wrap || s.tier >= 3) {
+            if (s.x < 0) { s.x += W; s.ev.push({ t: 'warp' }); }
+            else if (s.x >= W) { s.x -= W; s.ev.push({ t: 'warp' }); }
+          }
+          else if (s.x < WALL) { s.x = 2 * WALL - s.x; s.vx = -s.vx; s.bounces++; s.ev.push({ t: 'wall' }); }
+          else if (s.x > W - WALL) { s.x = 2 * (W - WALL) - s.x; s.vx = -s.vx; s.bounces++; s.ev.push({ t: 'wall' }); }
+          s.flight++;
+          if (s.holes.length) holes(s, dt);
+          if (!s.dead) {
+            if (!s.left) {
+              const o = s.nodes[s.from], ox = s.x - nodeX(o, s.tick), oy = s.y - o.y, lim = o.r + 3;
+              if (ox * ox + oy * oy > lim * lim) s.left = true;
+            }
+            ensure(s, s.y + 600);
+            const hm0 = s.R.margin ? (s.score <= 1000 ? 10 : s.score >= 1700 ? 0 : 10 * (1700 - s.score) / 700) : 0;
+            for (let i = s.lo; i < s.nodes.length; i++) {
+              const n = s.nodes[i];
+              if (n.y - n.r - hm0 > s.y) break;
+              if (n.y + n.r + hm0 < s.y || n.gone) continue;
+              if (i === s.from && !s.left) continue;
+              const cx = nodeX(n, s.tick), dx = s.x - cx, dy = s.y - n.y, rr = n.r + (i === s.from ? 0 : hm0);
+              if (dx * dx + dy * dy <= rr * rr) { capture(s, n, cx, dx, dy); break; }
+            }
+            if (s.mode === 1 && s.flight > (s.R.reach ? (s.mult >= 8 ? 384 : s.mult >= 4 ? 336 : s.mult >= 2 ? 312 : FLIGHT_MAX) : FLIGHT_MAX) * (s.boost ? 1.5 : 1)) die(s, 'lost');
+          }
+        }
+        if (s.started) {
+          const sec = (s.tick - s.t0) * dt;
+          let rate = 26 + 0.8 * sec; if (rate > 110) rate = 110;
+          s.deadline += rate * dt;
+          const floor = s.nodes[s.maxNode].y - 340;
+          if (s.deadline < floor) s.deadline = floor;
+          while (s.lo < s.nodes.length - 1 && s.nodes[s.lo].y + 60 < s.deadline) s.lo++;
+        }
+        if (!s.dead && s.y < s.deadline) die(s, 'deadline');
+        s.tick++;
+      }
+
+      function simulate(seed, taps, maxTicks, R) {
+        const s = create(seed, R), lim = maxTicks || HZ * 60 * 30;
+        let k = 0;
+        while (!s.dead && s.tick < lim) {
+          let tap = false;
+          while (k < taps.length && taps[k] < s.tick) k++;
+          if (k < taps.length && taps[k] === s.tick) { tap = true; k++; }
+          step(s, tap);
+          s.ev.length = 0;
+          if (!s.started && k >= taps.length) break;
+        }
+        return { score: s.score, ticks: s.tick, dead: s.dead, cause: s.cause, hops: s.hops, maxMult: s.maxMult };
+      }
+
+      return { VERSION, HZ, W, TWO_PI, FLIGHT_MAX, MAX_MULT, RULES, TWISTS, TIER_AT, rules, create, step, simulate, nodeX, ensure };
+    })();
+
+    const KEY = 'sim_patient_up_miss_v3';
+    const $ = id => document.getElementById(id);
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+      if (saved.token) $('token').value = saved.token;
+      if (saved.target) $('target').value = saved.target;
+      if (saved.sessionBlob) $('sessionBlob').value = saved.sessionBlob;
+    } catch (_) {}
+
+    function save() {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({
+          token: $('token').value,
+          target: $('target').value,
+          sessionBlob: $('sessionBlob').value
+        }));
+      } catch (_) {}
     }
-    langBtn.addEventListener('click',()=>setLang(currentLang==='ar'?'en':'ar'));
-    setLang(readSavedLanguage(),{animate:false,persist:false});
-    document.getElementById('year').textContent=new Date().getFullYear();
+
+    ['token', 'target', 'sessionBlob'].forEach(id => $(id).addEventListener('input', save));
+
+    function setStatus(text, type = '') {
+      const el = $('status');
+      el.textContent = text;
+      el.className = 'status' + (type ? ' ' + type : '');
+    }
+
+    function parseBlob() {
+      const raw = $('sessionBlob').value.trim();
+      if (!raw) throw new Error('أدخل بيانات الجلسة');
+      const data = JSON.parse(raw);
+      const seedNum = Number(data.seed);
+      if (data.seed === undefined || data.seed === null || !Number.isFinite(seedNum) || seedNum < 0) {
+        throw new Error('Seed غير صالح');
+      }
+      if (!data.runId || typeof data.runId !== 'string') {
+        throw new Error('Run ID غير صالح');
+      }
+      return {
+        seed: seedNum >>> 0,
+        runId: data.runId.trim(),
+        mode: data.mode ? String(data.mode) : 'free',
+        rulesName: data.rules ? String(data.rules) : 'free',
+        token: $('token').value.trim(),
+        target: Math.max(1, Math.floor(Number($('target').value) || 4600))
+      };
+    }
+
+    function cloneState(obj) {
+      if (typeof structuredClone === 'function') {
+        try { return structuredClone(obj); } catch (_) {}
+      }
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function mulberry32(a) {
+      let t = a >>> 0;
+      return function () {
+        t += 0x6D2B79F5;
+        let r = Math.imul(t ^ (t >>> 15), 1 | t);
+        r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+        return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+
+    function hash32(str) {
+      let h = 2166136261 >>> 0;
+      for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function makeFp(taps, hz, seed, runId) {
+      const rng = mulberry32((seed ^ hash32(runId)) >>> 0);
+      const r = (min, max) => min + rng() * (max - min);
+      const minD = Math.round(r(42, 64));
+      const maxD = Math.round(r(134, 190));
+      let curX = r(255, 345);
+      let curY = r(425, 515);
+      const minX = 215, maxX = 395;
+      const minY = 385, maxY = 565;
+      const msPerTick = 1000 / hz;
+
+      return taps.map((t, i) => {
+        const next = i + 1 < taps.length ? taps[i + 1] : t + 185;
+        const gapMs = Math.max(1, next - t) * msPerTick;
+        const norm = Math.min(1, Math.max(0, (gapMs - 450) / 2200));
+        const maxSafe = Math.max(25, Math.floor(gapMs * 0.72) - 12);
+        const minSafe = Math.min(maxSafe, Math.max(28, minD - 10));
+        let d = Math.round(minD + norm * (maxD - minD) + r(-16, 20));
+        if (d > maxSafe) d = maxSafe;
+        if (d < minSafe) d = minSafe;
+
+        const stepMag = Math.min(22, 5 + norm * 14 + r(0, 7));
+        const ang = r(0, Math.PI * 2);
+        curX = Math.max(minX, Math.min(maxX, curX + Math.cos(ang) * stepMag));
+        curY = Math.max(minY, Math.min(maxY, curY + Math.sin(ang) * stepMag));
+
+        return ['t', d, Math.round(curX), Math.round(curY), 0];
+      });
+    }
+
+    function solveTapsPatient(seed, runId, R, target) {
+      const HZ = SIM.HZ, TWO_PI = SIM.TWO_PI, maxTicks = 120 * 60 * 5;
+      const rng = mulberry32((seed ^ hash32(runId + ':patient-up-miss-v3')) >>> 0);
+
+      function lapTicks(s) {
+        const n = s.nodes[s.node];
+        let om = s.omega;
+        if (n && n.type === 3) om *= 1 + 0.3 * s.charge;
+        return Math.max(24, Math.ceil(TWO_PI / om * HZ));
+      }
+      function winFor(s) {
+        const n = s.nodes[s.node];
+        let w = lapTicks(s) + 6;
+        if (n && n.type === 2) w = Math.min(w, Math.floor(lapTicks(s) * 1.2) - 1);
+        return w;
+      }
+      function maxFlight(s) {
+        let f = SIM.FLIGHT_MAX;
+        if (s.R && s.R.reach) f = s.mult >= 8 ? 384 : s.mult >= 4 ? 336 : s.mult >= 2 ? 312 : f;
+        if (s.boost) f = Math.ceil(f * 1.5);
+        return f + 12;
+      }
+
+      function flyOut(s, prevNode, prevScore) {
+        let steps = 0, cap = maxFlight(s);
+        while (!s.dead && s.mode === 1 && steps < cap && s.tick < maxTicks) {
+          SIM.ensure(s, s.y + 800); SIM.step(s, false); s.ev.length = 0; steps++;
+        }
+        if (s.dead || (s.bounces || 0) > 0) return null;
+        return (s.mode === 0 && s.node === prevNode + 1 && s.score > prevScore) ? s : null;
+      }
+
+      function dedupKey(s) {
+        const b = Math.floor(((Math.atan2(s.ry, s.rx) + Math.PI) / TWO_PI) * 16) % 16;
+        return s.node + '|' + s.mult + '|' + s.score + '|' + b;
+      }
+
+      function rank(item) {
+        const s = item.state;
+        return s.score * 10
+          + s.maxNode * 25
+          + Math.min(s.y - s.deadline, 1200) * 0.15
+          + s.mult * 5;
+      }
+
+      function pickPatientCandidates(validList) {
+        if (!validList.length) return [];
+        const minIdx = validList.length > 4 ? Math.floor(validList.length * 0.25) : 0;
+        const sub = validList.slice(minIdx);
+        const ratio = 0.25 + rng() * 0.45;
+        const idx = Math.min(sub.length - 1, Math.floor(sub.length * ratio));
+        const picked = [sub[idx]];
+        const idx2 = Math.min(sub.length - 1, Math.floor(sub.length * Math.min(0.92, ratio + 0.22)));
+        if (idx2 !== idx) picked.push(sub[idx2]);
+        return picked;
+      }
+
+      let beam = [{ state: SIM.create(seed, R), taps: [] }];
+      let best = { score: 0, taps: [] };
+      let targetItem = null;
+      const startTime = Date.now();
+
+      for (let d = 0; d < 320; d++) {
+        const pool = new Map();
+        let found = null;
+
+        for (const item of beam) {
+          if (item.state.score > best.score) best = { score: item.state.score, taps: item.taps.slice() };
+          if (item.state.score >= target) { found = item; break; }
+          if (item.state.dead || item.state.tick >= maxTicks) continue;
+
+          const cur = cloneState(item.state);
+          const prevNode = cur.node, prevScore = cur.score, win = winFor(cur), t0 = cur.tick;
+          const validTapCands = [];
+
+          for (let off = 0; off <= win; off++) {
+            if (cur.dead || cur.mode !== 0 || cur.tick >= maxTicks) break;
+            const tickNow = cur.tick;
+
+            const br = cloneState(cur);
+            SIM.ensure(br, br.y + 800); SIM.step(br, true); br.ev.length = 0;
+            if (!br.dead && br.mode === 1) {
+              const land = flyOut(br, prevNode, prevScore);
+              if (land) validTapCands.push({ state: land, taps: item.taps.concat(tickNow) });
+            } else if (!br.dead && (br.bounces || 0) === 0 && br.mode === 0 && br.node === prevNode + 1 && br.score > prevScore) {
+              validTapCands.push({ state: br, taps: item.taps.concat(tickNow) });
+            }
+
+            SIM.ensure(cur, cur.y + 800); SIM.step(cur, false); cur.ev.length = 0;
+            if (!cur.dead && cur.mode === 1) {
+              const land = flyOut(cloneState(cur), prevNode, prevScore);
+              if (land) {
+                const cand = { state: land, taps: item.taps.slice() };
+                const k = dedupKey(land);
+                if (!pool.get(k) || rank(cand) > rank(pool.get(k))) pool.set(k, cand);
+              }
+              break;
+            }
+            if (cur.tick - t0 > win) break;
+          }
+
+          for (const cand of pickPatientCandidates(validTapCands)) {
+            const k = dedupKey(cand.state);
+            if (!pool.get(k) || rank(cand) > rank(pool.get(k))) pool.set(k, cand);
+          }
+
+          if (found || Date.now() - startTime > 30000) break;
+        }
+
+        if (found) { best = { score: found.state.score, taps: found.taps.slice() }; targetItem = found; break; }
+        if (!pool.size || Date.now() - startTime > 30000) break;
+        beam = [...pool.values()].sort((a, b) => rank(b) - rank(a)).slice(0, 28);
+      }
+
+      if (targetItem) {
+        const cur = cloneState(targetItem.state), win = winFor(cur);
+        const upDeadCands = [];
+        const upAnyCands = [];
+
+        for (let off = 0; off <= win * 2; off++) {
+          if (cur.dead || cur.mode !== 0 || cur.tick >= maxTicks) break;
+          const tickNow = cur.tick;
+
+          const br = cloneState(cur);
+          SIM.ensure(br, br.y + 800); SIM.step(br, true); br.ev.length = 0;
+          const launchedUpward = br.mode === 1 && br.vy > 0;
+
+          if (launchedUpward) {
+            let st = 0, cap = Math.max(maxFlight(br) * 2, 480);
+            while (!br.dead && br.mode === 1 && st < cap && br.tick < maxTicks) {
+              SIM.ensure(br, br.y + 800); SIM.step(br, false); br.ev.length = 0; st++;
+            }
+            if ((br.bounces || 0) === 0 && br.score >= target) {
+              const tCand = targetItem.taps.concat(tickNow);
+              if (br.dead) upDeadCands.push(tCand);
+              else upAnyCands.push(tCand);
+            }
+          }
+
+          SIM.ensure(cur, cur.y + 800); SIM.step(cur, false); cur.ev.length = 0;
+          if (cur.mode === 1) break;
+        }
+
+        const poolFinal = upDeadCands.length ? upDeadCands : upAnyCands;
+        if (poolFinal.length) {
+          const idx = Math.min(poolFinal.length - 1, Math.floor(poolFinal.length * (0.2 + rng() * 0.6)));
+          const chosen = poolFinal[idx];
+          if (SIM.simulate(seed, chosen, maxTicks, R).score >= target) {
+            best.taps = chosen;
+          }
+        }
+      }
+
+      return best.taps;
+    }
+
+    function generatePayload() {
+      save();
+      const cfg = parseBlob();
+      const ruleName = (cfg.rulesName && SIM.RULES[cfg.rulesName]) ? cfg.rulesName : cfg.mode;
+      const R = SIM.rules(ruleName, false, SIM.VERSION);
+      const taps = solveTapsPatient(cfg.seed, cfg.runId, R, cfg.target);
+      const ver = SIM.simulate(cfg.seed, taps, 120 * 60 * 5, R);
+
+      const body = {
+        token: cfg.token,
+        runId: cfg.runId,
+        taps,
+        score: ver.score,
+        v: SIM.VERSION,
+        group: '',
+        fp: makeFp(taps, SIM.HZ, cfg.seed, cfg.runId)
+      };
+
+      $('result').value = JSON.stringify(body);
+      setStatus(`Score: ${ver.score} · Taps: ${taps.length} · Hops: ${ver.hops}`, 'ok');
+      return body;
+    }
+
+    async function sendFinishRequest(payloadObj) {
+      const rawBody = payloadObj ? JSON.stringify(payloadObj) : $('result').value.trim();
+      if (!rawBody) throw new Error('لا يوجد JSON لإرساله');
+      JSON.parse(rawBody);
+
+      $('responseBox').value = 'جاري الإرسال إلى ' + FINISH_URL + ' ...';
+      const res = await fetch(FINISH_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8'
+        },
+        referrer: 'https://play.wacofficialbrand.com/?source=app',
+        referrerPolicy: 'strict-origin-when-cross-origin',
+        mode: 'cors',
+        credentials: 'omit',
+        body: rawBody
+      });
+
+      const text = await res.text();
+      $('responseBox').value = `HTTP ${res.status} ${res.statusText}\n${text}`;
+      if (res.ok) {
+        setStatus(`تم الإرسال (${res.status})`, 'ok');
+      } else {
+        setStatus(`فشل الإرسال (${res.status})`, 'err');
+      }
+    }
+
+    function setBusy(busy) {
+      ['runBtn', 'runSendBtn', 'sendOnlyBtn', 'copyBtn'].forEach(id => {
+        $(id).disabled = busy;
+      });
+    }
+
+    $('runBtn').addEventListener('click', () => {
+      try {
+        generatePayload();
+      } catch (err) {
+        setStatus(err.message || 'خطأ', 'err');
+      }
+    });
+
+    $('runSendBtn').addEventListener('click', async () => {
+      setBusy(true);
+      try {
+        const body = generatePayload();
+        await sendFinishRequest(body);
+      } catch (err) {
+        $('responseBox').value = String(err && err.stack ? err.stack : err);
+        setStatus(err.message || 'خطأ أثناء التوليد أو الإرسال', 'err');
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    $('sendOnlyBtn').addEventListener('click', async () => {
+      setBusy(true);
+      try {
+        await sendFinishRequest(null);
+      } catch (err) {
+        $('responseBox').value = String(err && err.stack ? err.stack : err);
+        setStatus(err.message || 'خطأ أثناء الإرسال', 'err');
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    $('copyBtn').addEventListener('click', async () => {
+      if (!$('result').value) return;
+      try {
+        await navigator.clipboard.writeText($('result').value);
+      } catch (_) {
+        $('result').select();
+        document.execCommand('copy');
+      }
+      setStatus('تم النسخ', 'ok');
+    });
   </script>
-  <script src="/links.js?v=5"></script>
 </body>
 </html>
-
